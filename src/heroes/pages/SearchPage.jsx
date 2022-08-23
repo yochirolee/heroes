@@ -23,11 +23,10 @@ export const SearchPage = () => {
 
 	return (
 		<>
-			<h1>Search</h1>
 			<br />
-			<div className="row">
-				<div className="col-5">
-					<h4>Searching</h4>
+			<div className="row ">
+				<div className="col-lg-5 ">
+					<h4>Search a Hero</h4>
 					<hr />
 
 					<form onSubmit={onSubmit}>
@@ -40,11 +39,11 @@ export const SearchPage = () => {
 							value={searchText}
 							onChange={onInputChange}
 						/>
-						<button className="btn btn-primary  mt-3">Search</button>
+						<button className="btn btn-primary   mt-3">Search</button>
 					</form>
 				</div>
 
-				<div className="col-7">
+				<div className=" container-fluid col-md-7">
 					<h4>Results</h4>
 					<hr />
 					{q.trim() === "" ? <div className="alert alert-primary">Search a Hero</div> : null}
@@ -52,7 +51,11 @@ export const SearchPage = () => {
 					{heroesResult.length === 0 && q.length >= 3 ? (
 						<div className="alert alert-danger">{`${q} not found`}</div>
 					) : (
-						heroesResult.map((hero) => <Hero hero={hero} key={hero.id} />)
+						<div className="row">
+							{heroesResult.map((hero) => (
+								<Hero hero={hero} key={hero.id} />
+							))}
+						</div>
 					)}
 				</div>
 			</div>
