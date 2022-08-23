@@ -51,7 +51,7 @@ export const SearchPage = () => {
 					{heroesResult.length === 0 && q.length >= 3 ? (
 						<div className="alert alert-danger">{`${q} not found`}</div>
 					) : (
-						<div className="row">
+						<div className="row container">
 							{heroesResult.map((hero) => (
 								<Hero hero={hero} key={hero.id} />
 							))}

@@ -16,11 +16,11 @@ export const HeroPage = () => {
 	if (!hero) return <Navigate to="/marvel" />;
 
 	return (
-		<div className="row mt-5">
+		<div className="row container mt-5">
 			<div className="col-4">
 				<img src={`../heroes/${hero.id}.jpg`} alt={hero.superhero} className="img-thumbnail" />
 			</div>
-			<div className="col-8">
+			<div className="col-8 container">
 				<h3>{hero.superhero}</h3>
 				<ul className="list-group list-group-flush">
 					<li className="list-group-item">
