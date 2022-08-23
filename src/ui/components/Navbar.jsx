@@ -1,11 +1,15 @@
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../auth/context/AuthContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 export const Navbar = () => {
 	const navigate = useNavigate();
 	const { logout, user } = useContext(AuthContext);
+	const [toggle, setToggle] = useState(true);
 
+	const onToggle = () => {
+		setToggle(!toggle)
+	};
 	const onLogout = () => {
 		navigate("/login", { replace: true });
 		logout();
@@ -16,7 +20,8 @@ export const Navbar = () => {
 				Asociaciones
 			</Link>
 			<button
-				class="navbar-toggler"
+				onClick={onToggle}
+				className="navbar-toggler"
 				type="button"
 				data-toggle="collapse"
 				data-target="#navbarSupportedContent"
@@ -27,7 +32,7 @@ export const Navbar = () => {
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
-			<div className="navbar-collapse">
+			<div className="navbar-collapse " style={{ display: `${toggle ? "none" : ""}` }}>
 				<div className="navbar-nav">
 					<NavLink
 						className={({ isActive }) => `nav-item nav-link ${isActive ? "active" : ""}`}
